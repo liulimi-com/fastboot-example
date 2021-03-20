@@ -1,0 +1,7 @@
+FROM bincent/openjdk:16
+LABEL maintainer="Boolean <hongbin.hsu@bincent.com>"
+
+RUN set -eux; \
+	apt-get update; \
+	apt-get -y upgrade;
+COPY ./target/example-0.0.1.jar /app.jar

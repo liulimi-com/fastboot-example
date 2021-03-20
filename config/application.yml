@@ -1,0 +1,17 @@
+server:
+  http2:
+    enabled: true
+  port: 8080
+  servlet:
+    session:
+      timeout: 30m
+  undertow:
+    accesslog:
+      dir: logs           # 设置访问日志所在目录
+      enabled: false      # 是否打开 undertow 日志，默认为 false
+    buffer-size: 1024
+    direct-buffers: true
+    max-http-post-size: 0 # 设置 HTTP POST 内容的最大长度，默认不做限制
+    threads:
+      io: 8               # 核数
+      worker: 64          # 核数 * 2

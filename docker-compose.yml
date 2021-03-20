@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  java:
+    image: bincent/openjdk:16
+    container_name: java
+    restart: always
+    volumes:
+      - ./logs:/data/logs
+      - ./config:/data/config:ro
+      - ./target/example-0.0.1.jar:/data/app.jar
+    environment:
+      - JAVA_OPTS=-Xms2g -Xmx2g -Xmn1g -XX:MetaspaceSize=128m -XX:MaxMetaspaceSize=320m # JAVA启动参数
+    ports:
+      - 8080:8080/tcp
+    network_mode: bridge
